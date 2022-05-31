@@ -1,3 +1,3 @@
-## Easy Github Pages
+## Github Pages
 
 https://jeytin.github.io/
