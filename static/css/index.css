@@ -1,0 +1,215 @@
+a {
+    color: #2776ea;
+}
+
+body {
+    background: #f1f5f8;
+}
+
+header, main, footer {
+    padding-left: 220px;
+}
+
+.container {
+    width: 90%;
+}
+
+@media only screen and (max-width: 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
+
+.l_massage {
+    max-width: 1200px;
+    margin: 20px auto;
+    font-size: 14px;
+    -webkit-box-shadow: 0 4px 16px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 4px 16px 1px rgba(0, 0, 0, 0.05);
+}
+
+.l_massage {
+    margin: 20px auto;
+    margin-bottom: 20px;
+    font-size: 14px;
+    -webkit-box-shadow: 0 4px 16px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 4px 16px 1px rgba(0, 0, 0, 0.05);
+    height: 50px;
+}
+
+.l_massage .hi-world-bran-logo {
+    font-size: 25px;
+    padding-top: -20px;
+}
+
+.alert-warning {
+    color: #2776ea;
+    background-color: #f0f8fc;
+    border-color: #c6daff;
+}
+
+.alert {
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: 4px;
+}
+
+.hot-news img {
+    width: 100px;
+}
+
+.ssinfo td {
+    width: 50%
+}
+
+.p-search-desc  img{
+    width: 30%;
+}
+
+.p-search-desc p {
+    padding-left: 10px;
+    line-height:23px;
+    font-size: 14px;
+}
+
+.p-search-desc .get-ss {
+    padding-top: 23px;
+}
+
+.p-search-desc .close-mod-btn {
+    padding-top: 15px;
+    margin-top: 15px;
+}
+.p-search-div{
+    height: 340px;
+}
+.left-center-red {
+    color: red;
+    font-size: 14px
+}
+
+.left-nav-brand {
+    margin-top: 30px;
+}
+
+.nav-pc-bar {
+    margin-bottom: 15px;
+}
+
+.main-card-col {
+    height: 80px;
+    margin-bottom: 10px;
+
+}
+
+.mian-card-col-coll {
+    height: 100%;
+    background-color: white;
+}
+
+.small-desc{
+    color:#909090;
+}
+.nav-padding{
+    padding-left: 30%;
+    font-size: 16px;
+}
+.subnav-padding{
+     padding-left: 30%;
+}
+
+.nav-tags li{
+    cursor: pointer;
+
+}
+.nav-tags li a{
+    font-size: 13px;
+    color: black;
+}
+
+.about{
+    font-size: 14px;
+}
+.about img{
+    width: 130px;
+}
+.about .hongbao{
+    width: 400px;
+    margin: 0px auto;
+}
+
+ body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+footer .frendsLink{
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+    margin-top: 30px;
+	float: left;
+}
+footer .frendsLink p{
+	width: 100%;
+	float: left;
+	color: #959595;
+    font-size: 10px;
+	text-align: center;
+}
+
+footer .frendsLink p span{
+	color: #959595;
+}
+footer .frendsLink p a{
+	color: #959595;
+}
+
+footer .frendsLink p a:hover{
+	color: indianred;
+}
+
+.left-bottom{
+    margin-top: 120px;
+}
+
+.mat-input {
+    position: relative;
+    background: transparent;
+    width: 500px;
+    border: none;
+    outline: none;
+    padding: 0;
+    font-size: 16px;
+}
+
+.mat-div-input {
+    padding: 10px 0 0 0;
+    position: relative;
+    float: left;
+    width: 70%;
+}
+
+.mat-div-button {
+    padding: 10px 0 0 0;
+    position: relative;
+    float: left;
+    width: 30%;
+}
+.mat-button {
+    margin-top: 15px;
+    margin-left: 20px;
+    position: relative;
+    width: 100px;
+    font-size: 16px;
+}
