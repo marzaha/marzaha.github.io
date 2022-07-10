@@ -36,6 +36,7 @@ def getBlog():
                         <script src="/static/markdeep/markdeep.min.js?" charset="utf-8"></script>
                         ''')         
         newFilePath =  os.path.join('%s\%s' % ("blog\\", fileName+".html"))
+        print(newFilePath)
         newFile = open(newFilePath, 'w', encoding='UTF-8')
         newFile.write(fileContent)               
         dataList.append(Data(fileName,newFilePath,"blog"))
@@ -47,14 +48,16 @@ def getData():
     dirName = "data\\"
     fileList = os.listdir(dirName)
     for fileName in fileList:
-        filePath = os.path.join('%s\%s' % (dirName, fileName))  
+        filePath = os.path.join('%s\%s' % (dirName, fileName))
+        print(filePath)
         dataList.append(Data(fileName,filePath,"data")) 
 
 def getPhoto():
     dirName = "photo\\"
     fileList = os.listdir(dirName)
     for fileName in fileList:
-        filePath = os.path.join('%s\%s' % (dirName, fileName))  
+        filePath = os.path.join('%s\%s' % (dirName, fileName))
+        print(filePath)  
         dataList.append(Data(fileName,filePath,"photo"))                                          
 
 
