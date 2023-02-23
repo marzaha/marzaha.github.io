@@ -30,7 +30,7 @@ def getBlog():
         oldFile = open(filePath, 'r', encoding='UTF-8')
         fileContent = oldFile.read()+str('''
                         \n
-                        <link rel="stylesheet" href="/static/markdeep/dark.css?">
+                        <link rel="stylesheet" href="/static/markdeep/slides.css?">
                         <style class="fallback">body{visibility:hidden}</style>
                         <script>markdeepOptions={tocStyle:'long'};</script>
                         <script src="/static/markdeep/markdeep.min.js?" charset="utf-8"></script>
