@@ -4,12 +4,16 @@
         "type": "blog"
     },
     {
-        "title": "图片示例",
-        "type": "photo"
+        "title": "静态页面",
+        "type": "html"
     },
     {
         "title": "模拟数据",
         "type": "data"
+    },
+    {
+        "title": "图片示例",
+        "type": "photo"
     },
     {
         "title": "站内搜索",
