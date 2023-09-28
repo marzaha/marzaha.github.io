@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>编程小记</title>
-    <link rel="shortcut icon" href="static/img/favicon.ico">
     <link href="static/css/materialicons.css" rel="stylesheet">
     <link href="static/css/materialize.min.css" rel="stylesheet">
-    <link href="static/css/index.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="static/css/index.css" rel="stylesheet" />
+
     <script type="text/javascript" src="static/js/jquery-3.2.1.js"></script>
 </head>
 
@@ -24,7 +24,7 @@
                 <br>
                 <br>
                 <li class="logo left-nav-logo center">
-                    <img src="static/img/img_default_head.jpg" style="width: 100px;height: 100px;border-radius: 10px;">
+                    <img src="static/img/head.jpg" style="width: 100px;height: 100px;border-radius: 10px;">
                     <br>
                 </li>
                 <li class="logo left-nav-logo center">
@@ -40,7 +40,7 @@
         <div class="container">
             <div class="section">
                 <br>
-                <div class="row" id="maindata">
+                <div class="row" id="bloglist">
 
                 </div>
             </div>
@@ -52,20 +52,20 @@
 <script type="text/javascript">
 
     window.onload = function () {
-        //getNavList();
         getBlogList();
     }
 
     function getBlogList() {
         $.ajax({
             type: 'GET',
-            url: 'config.txt',
+            url: 'list.txt',
             success: function (response) {
                 var fileList = response.split('\r\n');
                 var htmlStr = '';
                 for (var i = 0; i < fileList.length; i++) {
                     var fileName = fileList[i]
-                    htmlStr += "<div class='col s6 m4 main-card-col'>\
+                    if (fileName.length != 0) {
+                        htmlStr += "<div class='col s6 m4 main-card-col'>\
                         <a target='_blank' href='blog.html?title="+ fileName + "'>\
                             <ul class='collection mian-card-col-coll hoverable'>\
                                 <li class='collection-item'>\
@@ -74,109 +74,12 @@
                             </ul>\
                         </a>\
                     </div>"
-                }
-                document.getElementById("maindata").innerHTML = htmlStr;
-            },
-            error: function (response) {
-                console.log(response);
-            }
-        })
-    }
-
-
-    function getNavList() {
-        $.ajax({
-            type: 'GET',
-            url: 'nav.json',
-            dateType: 'json',
-            success: function (response) {
-                // var navList = JSON.parse(response);
-                var navList = response;
-                var str = '';
-                for (var i = 0; i < navList.length; i++) {
-                    var item = navList[i]
-                    str += "<ul class='collapsible' data-collapsible='accordion'>\
-                        <li>\
-                            <a  href='javascript:void(0);' onclick='getDataList(\""+ item.type + "\");' class='collapsible-header  waves-effect waves-red no-padding'>\
-                                <span class='nav-padding'>"+ item.title + "</span>\
-                            </a>\
-                        </li>\
-                        </ul>"
-                }
-                document.getElementById("navigation").innerHTML = str;
-
-                getDataList(navList[0].type)
-            },
-            error: function (response) {
-                console.log(response);
-            }
-        })
-    }
-
-    function getDataList(type) {
-        if (type == "search") {
-            document.getElementById("searchdiv").style.display = "block";
-            document.getElementById("searchdiv").value = "";
-            document.getElementById("maindata").innerHTML = "";
-        } else {
-            document.getElementById("searchdiv").style.display = "none";
-            $.ajax({
-                type: 'GET',
-                url: 'config.json',
-                dateType: 'json',
-                success: function (response) {
-                    var dataList = response;
-                    var str = '';
-                    for (var i = 0; i < dataList.length; i++) {
-                        var item = dataList[i]
-                        if (type == item.type) {
-                            str += "<div class='col s6 m4 main-card-col'>\
-                        <a target='_blank' href='"+ item.url + "'>\
-                            <ul class='collection mian-card-col-coll hoverable'>\
-                                <li class='collection-item'>\
-                                    <span class='title truncate'>"+ item.title + "</span>\
-                                </li>\
-                            </ul>\
-                        </a>\
-                    </div>"
-                        }
-                    }
-                    document.getElementById("maindata").innerHTML = str;
-                },
-                error: function (response) {
-                    console.log(response);
-                }
-            })
-        }
-    }
-
-    function searchDataList() {
-        var searchWord = document.getElementById("searchinput").value;
-        $.ajax({
-            type: 'GET',
-            url: 'config.json',
-            dateType: 'json',
-            success: function (response) {
-                var dataList = response;
-                var str = '';
-                for (var i = 0; i < dataList.length; i++) {
-                    var item = dataList[i]
-                    if (item.title.toLowerCase().indexOf(searchWord.toLowerCase()) != -1 || searchWord.toLowerCase().indexOf(item.title.toLowerCase()) != -1) {
-                        str += "<div class='col s6 m4 main-card-col'>\
-                        <a target='_blank' href='"+ item.url + "'>\
-                            <ul class='collection mian-card-col-coll hoverable'>\
-                                <li class='collection-item'>\
-                                    <span class='title truncate'>"+ item.title + "</span>\
-                                </li>\
-                            </ul>\
-                        </a>\
-                    </div>"
                     }
                 }
-                document.getElementById("maindata").innerHTML = str;
+                document.getElementById("bloglist").innerHTML = htmlStr;
             },
-            error: function (response) {
-                console.log(response);
+            error: function (err) {
+                console.log(err);
             }
         })
     }

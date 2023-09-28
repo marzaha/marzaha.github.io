@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <title>Marked in the browser</title>
+    <title>Blog</title>
 
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/font-awesome.min.css" rel="stylesheet">
@@ -20,7 +20,7 @@
         }
 
         img {
-            max-width: 1000px;
+            max-width: 960px;
         }
 
         table {
@@ -89,32 +89,19 @@
     }
 
     function loadContent() {
-        var fileName = 'Android%20App%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B.md';
+        var fileName = location.search.substring(7);
         var requestUrl = 'markdown/' + fileName
+        document.title = decodeURI(fileName);
         $.ajax({
             type: 'GET',
             url: requestUrl,
             success: function (response) {
                 document.getElementById('content').innerHTML = marked.parse(response);
             },
-            error: function (error) {
-                console.log(error);
+            error: function (err) {
+                console.log(err);
             }
         })    
-    }
-
-    function getParam() {
-        var url = location.search;
-        console.log(url);
-        var request = new Object();
-        if (url.indexOf("?") != -1) {
-            var str = url.substr(1);
-            strs = str.split("&");
-            for (var i = 0; i < strs.length; i++) {
-                request[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
-            }
-        }
-        return request;
     }
 
 </script>
