@@ -60,11 +60,12 @@
             type: 'GET',
             url: 'list.txt',
             success: function (response) {
-                var fileList = response.split('\r\n');
+                var fileList = response.split('\n');
                 var htmlStr = '';
                 for (var i = 0; i < fileList.length; i++) {
                     var fileName = fileList[i]
                     if (fileName.length != 0) {
+                        fileName = fileName.trim();
                         htmlStr += "<div class='col s6 m4 main-card-col'>\
                         <a target='_blank' href='blog.html?title="+ fileName + "'>\
                             <ul class='collection mian-card-col-coll hoverable'>\
